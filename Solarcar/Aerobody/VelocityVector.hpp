@@ -8,7 +8,7 @@ struct VelocityVector {
    public:
 	/// @brief constructs a velocity vector using it's components
 	///
-	/// @param north_sourth (m/s) the North-South component of the wind vector
+	/// @param north_south (m/s) the North-South component of the wind vector
 	/// @param east_west (m/s) the East-West component of the wind vector
 	static VelocityVector from_cartesian_components(double north_south, double east_west) {
 		return VelocityVector(north_south, east_west);
@@ -36,16 +36,14 @@ struct VelocityVector {
 
 	/// @brief Calculate the magnitude of the vector
 	double get_magnitude() const {
-		/// TODO: Return Something Meaningful
-		return -1;
+		return speed;
 	}
 
 	/// @brief Calculates the heading
 	/// @note recall that 0 radians is due north, and π/4 radians is due east, and the range is
 	/// [0, 2π]
 	double get_heading() const {
-		// TODO: Return Something Meaningful
-		return -1;
+		return the;
 	}
 
 	/// @brief Calculate the angle, in radians, between the two vectors
@@ -55,8 +53,12 @@ struct VelocityVector {
 	/// @note zero if either vector is 0
 	/// @hint you might need to use the dot product
 	double angle_between(const VelocityVector& other) const {
-		// TODO: Return Something Meaningful
-		return -1;
+		if( this->get_magnitude==0 or other.get_magnitude==0) {
+			return 0;
+		}
+		double dot = this.north_south * other.get_north_south() + this.east_west * other.get_east_west();
+		double cose = dot / (this->get_magnitude() * other.get_magnitude()) 
+		return acos(cose);
 	}
 
    private:
