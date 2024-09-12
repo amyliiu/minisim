@@ -36,14 +36,14 @@ struct VelocityVector {
 
 	/// @brief Calculate the magnitude of the vector
 	double get_magnitude() const {
-		return speed;
+		return sqrt(pow(north_south, 2) + pow(east_west,2));
 	}
 
 	/// @brief Calculates the heading
 	/// @note recall that 0 radians is due north, and π/4 radians is due east, and the range is
 	/// [0, 2π]
 	double get_heading() const {
-		return the;
+		return tan(north_south/east_west) * 3.14159/180;
 	}
 
 	/// @brief Calculate the angle, in radians, between the two vectors
@@ -53,11 +53,11 @@ struct VelocityVector {
 	/// @note zero if either vector is 0
 	/// @hint you might need to use the dot product
 	double angle_between(const VelocityVector& other) const {
-		if( this->get_magnitude==0 or other.get_magnitude==0) {
+		if( get_magnitude()==0 or other.get_magnitude()==0) {
 			return 0;
 		}
-		double dot = this.north_south * other.get_north_south() + this.east_west * other.get_east_west();
-		double cose = dot / (this->get_magnitude() * other.get_magnitude()) 
+		double dot = north_south * other.get_north_south() + east_west * other.get_east_west();
+		double cose = dot / (this->get_magnitude() * other.get_magnitude());
 		return acos(cose);
 	}
 

@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/Users/amyliu/Projects/minisim/Solarcar",
+    "files.associations": {
+        "cmath": "cpp"
+    }
+}
